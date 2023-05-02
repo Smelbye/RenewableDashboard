@@ -176,18 +176,17 @@ def barchart_2(year):
     df_merged = df_filtered_consumption[['Entity', 'Total Consumption (TWh)']].merge(df_filtered_production[['Entity', 'Total Production (TWh)']], on='Entity', how='outer')
     df_merged = pd.melt(df_merged, id_vars='Entity', var_name='Type', value_name='TWh')
 
-    # Add custom labels for the legend
+    # Custom labels for the legend
     df_merged['Label'] = df_merged['Type'].replace({'Total Production (TWh)': 'Total Production', 'Total Consumption (TWh)': 'Total Consumption'})
 
-    # Set color scale for the bar chart
+    # Color scale for the bar chart
     colorscale = ['royalblue', 'limegreen']
 
     fig = px.bar(df_merged, x='Entity', y='TWh', color='Label', text='TWh', barmode='group', color_discrete_sequence=colorscale)
 
-    # Set text template and position for the bar chart
+    # Text template and position for the bar chart
     fig.update_traces(texttemplate='%{text:.1f}', textposition='outside')
 
-    # Set layout for the bar chart
     fig.update_layout(
         plot_bgcolor='aliceblue',
         yaxis=dict(gridcolor='lightgrey', gridwidth=0.5, zeroline=False),
