@@ -11,11 +11,11 @@ import matplotlib.cm as cm
 import pandas as pd
 
 # Load and preprocess the data
-data_files = os.listdir('dataset')
+data_files = os.listdir('Dataset')
 data_frames = {}
 
 for file in data_files:
-    df = pd.read_csv(f'dataset/{file}')
+    df = pd.read_csv(f'Dataset/{file}')
     key = file.split('.')[0]
     data_frames[key] = df
 
