@@ -97,7 +97,7 @@ def highest_renewable_share_country(year):
 
 
 # App and layout
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 server = app.server
 
 # Line Chart
